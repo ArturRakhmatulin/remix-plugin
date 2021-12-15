@@ -1,0 +1,37 @@
+user
+geth account new --datadir C:\Users\администратор\Desktop\geth-windows-amd64-1.9.21-0287d548
+init
+geth --datadir "C:\Users\Анжела\Desktop\geth-windows-amd64-1.9.21-0287d548" init "C:\Users\Анжела\Desktop\geth-windows-amd64-1.9.21-0287d548\genesis.json"
+run
+geth --rpc --rpcaddr "0.0.0.0" --rpcapi "eth,miner,net,web3,admin,personal" --networkid 15 --datadir "C:\Users\Анжела\Desktop\geth-windows-amd64-1.9.21-0287d548" --allow-insecure-unlock --rpccorsdomain "*" console
+attach
+geth attach "http://192.168.1.56:8545"
+
+
+var Admin = eth.accounts[0]
+var Bank = eth.accounts[1]
+var IK = eth.accounts[2]
+var Ivanov = eth.accounts[3]
+var Semenov = eth.accounts[4]
+var Petrov = eth.accounts[5]
+var Dmitriev = eth.accounts[7]
+var Romanov = eth.accounts[6]
+personal.unlockAccount(Bank, "123", 0)
+personal.unlockAccount(IK, "123", 0)
+personal.unlockAccount(Ivanov, "123", 0)
+personal.unlockAccount(Semenov, "123", 0)
+personal.unlockAccount(Petrov, "123", 0)
+personal.unlockAccount(Admin, "123", 0)
+personal.unlockAccount(Dmitriev, "123", 0)
+personal.unlockAccount(Romanov, "123", 0)
+miner.start()
+miner.stop()
+eth.accounts
+eth.getBalance(Bank)
+
+
+pdd.reg_driver("Dmitriev", "DmitrievDD", 3, 1, 0, {"from":Dmitriev})
+pdd.reg_license(222, 9092020, 3, {"from":Semenov})
+
+var sv = 2000000000000000000
+pdd.pay_fee(sv, {"from":Semenov, "value":sv})
